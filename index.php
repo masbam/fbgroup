@@ -13,8 +13,8 @@ require "facebook/facebook.php";
 	}
 
 
-	$appId = 'xxxxxxxxx'; //appid from facebook
-	$secret = 'xxxxxxx'; //secrete from facebook
+	$appId = '547353862285214'; //appid from facebook
+	$secret = 'bac13b33288dc0fc6f5665284029a478'; //secrete from facebook
 	$app_id = $appId;
 	$app_secret = $secret;
 	$groupId = '1841081392797911'; //facebook groupid
@@ -48,6 +48,14 @@ if(strlen($string) <= $limit) return $string;
 	<title>DevC Surabaya, Facebook Group</title>
 	<meta name="description" content="">
 	<meta name="author" content="">
+
+  <meta property="og:url"           content="https://www.ichahouse.com/fbgroup/index.php" />
+  <meta property="og:type"          content="website" />
+  <meta property="og:title"         content="DevC Surabaya, Facebook Group" />
+  <meta property="og:description"   content="Sample web API" />
+  <meta property="og:image"         content="https://www.ichahouse.com/fbgroup/img/logo.png" />
+	
+	
 	<link rel="stylesheet" href="style.css" type="text/css" media="screen, projection" />
 	 
 
@@ -94,6 +102,18 @@ if(strlen($string) <= $limit) return $string;
          }(document));
 };
       </script>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10&appId=547353862285214";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
 
 </head>
 
@@ -168,11 +188,15 @@ if ($user) {
 	$group_stuff = $facebook->api('/'.$groupId.'/', array('fields'=>'icon,owner,name,description'));
 	print "<img class=\"rounded logo\" src=\"img/logo.png\"/>";
 	print "<h1><a href=\"/\">".$group_stuff['name']."</a></h1>";
-	//print "<h2>".$group_stuff['description']."</h2>";
-	print "<h2>Group DevC Surabaya. this is sample for capture Developer Circles from Facebook. </h2>";
-
+	print "<h4>".$group_stuff['description']."</h4>";
+	//print "<h2>Group DevC Surabaya. this is sample for capture Developer Circles from Facebook. </h2>";
+    ?>
+	<br>
+	
+    <iframe src="https://www.facebook.com/plugins/follow.php?href=https%3A%2F%2Fwww.facebook.com%2Fbamsbams&width=450&height=80&layout=standard&size=small&show_faces=true&appId=547353862285214" width="450" height="80" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+<?php
 	print "<hr class=\"clearfix\" />";
-	print "</div><!-- End #header-->";
+	print "</div><!-- End #header-->"; 
 
 
 
@@ -220,8 +244,8 @@ if ($user) {
 	
 	print "<div class=\"message-box like-box\"><img src=\"img/like.png\" />";
 
-	if ($value['likes']) {
-		print "<span>".$value['likes']['count']."</span>\nlikes"; 
+	if ($value['like']) {
+		print "<span>".$value['like']['counts']."</span>\nlikes"; 
 		}
 	else {
 		print "<span>0</span>\nlikes";
@@ -326,8 +350,9 @@ if ($user) {
 		print "<ul class=\"Comment\">";
 	
 
-		$comments = $facebook->api('/'.$value['id'].'/comments');// array('limit' => 10));
-		//$comments = $facebook->api('/'.$groupId.'_'.$id[1].'/comments', array('limit' => 10, 'fields'=>'id,from,message,created_time'));
+
+		//$comments = $facebook->api('/'.$value['id'].'/comments');// array('limit' => 10));
+		$comments = $facebook->api('/'.$groupId.'_'.$id[1].'/comments', array('limit' => 10, 'fields'=>'id,from,message,created_time'));
 		
 		foreach ($comments['data'] as $comment) {
 		print "<li><img class=\"avatar rounded\" src='http://graph.facebook.com/".$comment['from']['id']."/picture'>";
@@ -344,6 +369,7 @@ if ($user) {
 			print "<li><img class=\"avatar\" src=\"img/fbicon.png\" /><div><h4><a href='https://www.facebook.com/groups/DevCSurabaya".$id[1]."/' target='_blank'>to Facebook</a></h4></div></li>";
 		?>
 		</ul>
+		
 		</div>
 <?php } // fine IF comments > 0
 	$id = explode('_',$value['id']);
@@ -385,7 +411,7 @@ if ($user) {
 		</div> <!-- end of main -->
    
 		<div class="footer">
-			<p>Facebook DevC Surabaya <a href="https://www.facebook.com/groups/DevCSurabaya" target="_blank">  :)</p>
+			<p>Facebook DevC Surabaya <a href="https://www.facebook.com/groups/DevCSurabaya" target="_blank">  GROUP</p>
 		</div>
 
 	</div> <!-- end of container-->
