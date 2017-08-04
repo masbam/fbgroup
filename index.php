@@ -112,9 +112,6 @@ if(strlen($string) <= $limit) return $string;
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
-
-
-
 </head>
 
 <body>
@@ -192,11 +189,12 @@ if ($user) {
 	//print "<h2>Group DevC Surabaya. this is sample for capture Developer Circles from Facebook. </h2>";
     ?>
 	<br>
-	
+    <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2F20531316728%2Fposts%2F10154009990506729%2F&width=500&show_text=true&appId=547353862285214&height=290" width="500" height="290" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+    <!--<iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Fgroups%2FDevCSurabaya%2Fpermalink%2F1930483757191007%2F&width=450&layout=standard&action=like&size=large&show_faces=true&share=true&height=80&appId=547353862285214" width="450" height="80" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>	-->
     <iframe src="https://www.facebook.com/plugins/follow.php?href=https%3A%2F%2Fwww.facebook.com%2Fbamsbams&width=450&height=80&layout=standard&size=small&show_faces=true&appId=547353862285214" width="450" height="80" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
 <?php
 	print "<hr class=\"clearfix\" />";
-	print "</div><!-- End #header-->"; 
+	print "</div><!-- End #header-->"; //https://www.facebook.com/groups/DevCSurabaya/permalink/1930483757191007/
 
 
 
